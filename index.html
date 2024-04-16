@@ -25,7 +25,9 @@
     background-position: center;
     background-size: cover;
   }
-
+button{
+  display: none;
+}
 
 
 </style>
@@ -52,32 +54,35 @@ var imageSources = [
 // // Array of texts associated with images, change the second column as necessary
 
 var textArray = {
-    "Capitalism.png": "capitalism",
-    "Croissant.png": "hiii",
-    "Sleep.png": "hello",
-    "Happiness.png": "change me",
-    "Alive.png": "replace",
-    "Night.png": " me me ",
-    "strangers.png": "hereee",
-    "wedding-checklist.png": "hahaudhidh",
-    "Shopping.png": "bla bla bla",
-    "Safari1.png": "bla bla"
+    "Capitalism.png": "CAPITALISM",
+    "Croissant.png": "GRATITUDE MANTRA",
+    "Sleep.png": "STRESS MANTRA",
+    "Happiness.png": "FOOD MANTRA",
+    "Alive.png": "GRATITUDE MANTRA",
+    "Night.png": " SLEEP ROUTINE ",
+    "strangers.png": "GRATITUDE MANTRA",
+    "wedding-checklist.png": "WEDDING CHECKLIST",
+    "Shopping.png": "RANDOM SHOPPING LIST",
+    "Safari1.png": "ATTENTION VIEWER"
 };
 
 
 function openSpamWindow() {
-    var screenWidth = window.innerWidth;
-    var screenHeight = window.innerHeight;
+    var screenWidth = 1080;
+    var screenHeight = 820;
 
-    var randomX = Math.floor(Math.random() * (screenWidth - 400));
-    var randomY = Math.floor(Math.random() * (screenHeight - 300));
+    var randomX = Math.floor(Math.random() * (screenWidth - 100));
+    var randomY = Math.floor(Math.random() * (screenHeight - 100));
 
     // Select a random image source from the array
     var randomImageSrc = imageSources[Math.floor(Math.random() * imageSources.length)];
+    var i = textArray[randomImageSrc];
 
 var spamWindow = window.open(" ", '_blank', `width=390,height=290,left=${randomX},top=${randomY}`);
     spamWindow.document.write('<img id="image" style="margin: -2%;padding: 0;object-fit:cover;" src="' + randomImageSrc + '" />');
     spamWindow.document.write( '<title>'+ i +'</title>');
+    spamWindow.document.write('<button onclick="closeSpamWindow()"  style="display: none;"></button>');
+
 
     // Close the window automatically after 10 seconds
     setTimeout(function() {
