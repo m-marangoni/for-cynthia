@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zen Spamming</title>
+<style>
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; 
+}
+
+ body {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-image: url(mybackground.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
+
+
+
+</style>
+</head>
+<body>
+
+<script>
+// Array of image sources
+var imageSources = [
+    "Capitalism.png",
+    "Croissant.png",
+    "Sleep.png",
+    "Happiness.png",
+    "Alive.png",
+    "Night.png",
+    "strangers.png",
+    "wedding-checklist.png",
+    "Shopping.png",
+    "Safari1.png"
+    // Add more image URLs as needed
+];
+
+
+// // Array of texts associated with images, change the second column as necessary
+
+var textArray = {
+    "Capitalism.png": "capitalism",
+    "Croissant.png": "hiii",
+    "Sleep.png": "hello",
+    "Happiness.png": "change me",
+    "Alive.png": "replace",
+    "Night.png": " me me ",
+    "strangers.png": "hereee",
+    "wedding-checklist.png": "hahaudhidh",
+    "Shopping.png": "bla bla bla",
+    "Safari1.png": "bla bla"
+};
+
+
+function openSpamWindow() {
+    var screenWidth = window.innerWidth;
+    var screenHeight = window.innerHeight;
+
+    var randomX = Math.floor(Math.random() * (screenWidth - 400));
+    var randomY = Math.floor(Math.random() * (screenHeight - 300));
+
+    // Select a random image source from the array
+    var randomImageSrc = imageSources[Math.floor(Math.random() * imageSources.length)];
+
+var spamWindow = window.open(" ", '_blank', `width=390,height=290,left=${randomX},top=${randomY}`);
+    spamWindow.document.write('<img id="image" style="margin: -2%;padding: 0;object-fit:cover;" src="' + randomImageSrc + '" />');
+    spamWindow.document.write( '<title>'+ i +'</title>');
+
+    // Close the window automatically after 10 seconds
+    setTimeout(function() {
+        spamWindow.close();
+    }, 10000); // 10 seconds
+}
+
+function closeSpamWindow() {
+    window.close();
+}
+
+// Adjust the interval (in milliseconds) to control how often new windows are spawned
+var interval = 3000; // 3 seconds for testing, change as needed
+setInterval(openSpamWindow, interval);
+
+</script>
+
+</body>
+</html>
